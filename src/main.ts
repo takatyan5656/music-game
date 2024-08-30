@@ -51,14 +51,14 @@ document.getElementById('start-btn')!.addEventListener('click', () => {
       let num = Math.floor(Math.random() * ary.length);
       createNotes(ary[num]!);
     },
-    (60 / 256) * 1000
+    (120 / 128) * 1000
   );
 });
 
 function isIntersecting(rect1: DOMRect, rect2: DOMRect) {
   return !(
-    rect1.bottom < rect2.top ||
-    rect1.top > rect2.bottom ||
+    Math.sqrt(rect1.bottom*rect1.bottom - rect2.top*rect2.top)<0.02 ||
+    Math.sqrt(rect1.top*rect1.top - rect2.bottom*rect2.bottom)<0.02 ||
     rect1.right < rect2.left ||
     rect1.left > rect2.right
   );

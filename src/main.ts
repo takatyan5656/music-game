@@ -93,3 +93,17 @@ btn1.addEventListener('click', () => checkForHits(btn1));
 btn2.addEventListener('click', () => checkForHits(btn2));
 btn3.addEventListener('click', () => checkForHits(btn3));
 btn4.addEventListener('click', () => checkForHits(btn4));
+
+const keyDownEvent = (e: KeyboardEvent) => {
+  if (e.key === 'd' || e.key === '1') {
+    checkForHits(btn1);
+  } else if (e.key === 'f' || e.key === '2') {
+    checkForHits(btn2);
+  } else if (e.key === 'j' || e.key === '3') {
+    checkForHits(btn3);
+  } else if (e.key === 'k' || e.key === '4') {
+    checkForHits(btn4);
+  }
+};
+
+window.addEventListener('keydown', keyDownEvent);

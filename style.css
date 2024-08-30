@@ -1,74 +1,73 @@
 html,
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    /* overflow: hidden; */
-    user-select: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  /* overflow: hidden; */
+  user-select: none;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 200px;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-width: 2px;
-    height: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 200px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-width: 2px;
+  height: 100%;
 }
 
 .canvas {
-    margin: 0 25% 0 25%;
-    height: 100vh;
-    display: flex;
-    position: relative;
+  margin: 0 25% 0 25%;
+  height: 100vh;
+  display: flex;
+  position: relative;
 }
 
 .container div {
-    flex: 1;
-    border-left: 1px solid black;
-    position: relative;
+  flex: 1;
+  border-left: 1px solid black;
+  position: relative;
 }
 
 .btn {
-    width: 100%;
-    position: absolute;
-    bottom: 15%;
-    cursor: pointer;
+  width: 100%;
+  position: absolute;
+  bottom: 15%;
+  cursor: pointer;
 }
 
 .note {
-    position: absolute;
-    width: 100%;
-    height: 2%;
-    background-color: aqua;
-    border-radius: 40%;
+  position: absolute;
+  width: 100%;
+  height: 2%;
+  background-color: aqua;
+  border-radius: 40%;
 }
 
-#start-btn{
-    height: 5%;
-    width: 10%;
-    position: absolute;
-    bottom: 20%;
-    left: 5%;
-
+#start-btn {
+  height: 5%;
+  width: 10%;
+  position: absolute;
+  bottom: 20%;
+  left: 5%;
 }
 
 .lane {
-    position: relative;
+  position: relative;
 }
 
-.checkButton{
-    height: 20%;
-    width: 10%;
-    position: absolute;
-    bottom: 40%;
-    left: 5%;
+.checkButton {
+  height: 20%;
+  width: 10%;
+  position: absolute;
+  bottom: 40%;
+  left: 5%;
 }
 
-.set{
-    position: absolute;
-    top: 20%;
-    left: 5%;
+.set {
+  position: absolute;
+  top: 20%;
+  left: 5%;
 }

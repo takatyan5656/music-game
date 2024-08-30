@@ -36,8 +36,8 @@ function createNotes(lane: HTMLElement) {
         lane.removeChild(note);
       }
     }
-  }, 16);
-  // note.dataset.intervalId = String(intervalId);
+  }, 2);
+  note.dataset.intervalId = String(intervalId);
 }
 
 document.getElementById('start-btn')!.addEventListener('click', () => {
@@ -46,10 +46,13 @@ document.getElementById('start-btn')!.addEventListener('click', () => {
   const lane3 = document.getElementById('lane3');
   const lane4 = document.getElementById('lane4');
   const ary = [lane1, lane2, lane3, lane4];
-  setInterval(() => {
-    let num = Math.floor(Math.random() * ary.length);
-    createNotes(ary[num]!);
-  }, 2000);
+  setInterval(
+    () => {
+      let num = Math.floor(Math.random() * ary.length);
+      createNotes(ary[num]!);
+    },
+    (60 / 256) * 1000
+  );
 });
 
 function isIntersecting(rect1: DOMRect, rect2: DOMRect) {
@@ -66,17 +69,14 @@ function checkForHits(button: HTMLElement) {
   const buttonRect = button.getBoundingClientRect();
   let hitDetected = false;
 
-  notes.forEach((note) => {
-    console.log(note);
+  notes.forEach((note: any) => {
     const noteRect = note.getBoundingClientRect();
-    // if (isIntersecting(noteRect, buttonRect)) {
-    //   clearInterval(intervalId);
-    //   if (note.parentElement) {
-    //     note.remove();
-    //     clearInterval(Number(note.dataset.intervalId));
-    //   }
-    //   hitDetected = true;
-    // }
+    if (isIntersecting(noteRect, buttonRect)) {
+      const intervalId = note.dataset.intervalId;
+      note.remove();
+      clearInterval(Number(intervalId));
+      hitDetected = true;
+    }
   });
   return hitDetected;
 }

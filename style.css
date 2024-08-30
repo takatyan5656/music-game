@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
   user-select: none;
 }
 
@@ -28,7 +28,6 @@ body {
 .container div {
   flex: 1;
   border-left: 1px solid black;
-  position: relative;
 }
 
 .btn {
@@ -36,6 +35,7 @@ body {
   position: absolute;
   bottom: 15%;
   cursor: pointer;
+  z-index: 1;
 }
 
 .note {

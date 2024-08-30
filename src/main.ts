@@ -3,7 +3,25 @@ const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
 const btn4 = document.getElementById('btn4');
 
-function createNote(lane) {
+if (!btn1 || !btn2 || !btn3 || !btn4) throw new Error('ボタンの要素が存在しない');
+
+const check1 = document.getElementById('check1');
+const check2 = document.getElementById('check2');
+const check3 = document.getElementById('check3');
+const check4 = document.getElementById('check4');
+
+const notesList: {
+  lane: number;
+  height: number;
+}[] = [];
+
+// let intervalId: number | undefined = undefined
+
+function createNotes(lane: HTMLElement) {
+  notesList.push({
+    lane: Math.floor(Math.random() * 4),
+    height: 0,
+  });
   const note = document.createElement('div');
   note.classList.add('note');
   lane.appendChild(note);
@@ -19,10 +37,10 @@ function createNote(lane) {
       }
     }
   }, 16);
-  note.dataset.intervalId = intervalId;
+  // note.dataset.intervalId = String(intervalId);
 }
 
-document.getElementById('start-btn').addEventListener('click', () => {
+document.getElementById('start-btn')!.addEventListener('click', () => {
   const lane1 = document.getElementById('lane1');
   const lane2 = document.getElementById('lane2');
   const lane3 = document.getElementById('lane3');
@@ -30,11 +48,11 @@ document.getElementById('start-btn').addEventListener('click', () => {
   const ary = [lane1, lane2, lane3, lane4];
   setInterval(() => {
     let num = Math.floor(Math.random() * ary.length);
-    createNote(ary[num]);
+    createNotes(ary[num]!);
   }, 2000);
 });
 
-function isIntersecting(rect1, rect2) {
+function isIntersecting(rect1: DOMRect, rect2: DOMRect) {
   return !(
     rect1.bottom < rect2.top ||
     rect1.top > rect2.bottom ||
@@ -43,7 +61,7 @@ function isIntersecting(rect1, rect2) {
   );
 }
 
-function checkForHits(button) {
+function checkForHits(button: HTMLElement) {
   const notes = document.querySelectorAll('.note');
   const buttonRect = button.getBoundingClientRect();
   let hitDetected = false;
@@ -51,25 +69,25 @@ function checkForHits(button) {
   notes.forEach((note) => {
     console.log(note);
     const noteRect = note.getBoundingClientRect();
-    if (isIntersecting(noteRect, buttonRect)) {
-      clearInterval(interval);
-      if (note.parentElement) {
-        note.remove();
-        clearInterval(Number(note.dataset.intervalId));
-      }
-      hitDetected = true;
-    }
+    // if (isIntersecting(noteRect, buttonRect)) {
+    //   clearInterval(intervalId);
+    //   if (note.parentElement) {
+    //     note.remove();
+    //     clearInterval(Number(note.dataset.intervalId));
+    //   }
+    //   hitDetected = true;
+    // }
   });
   return hitDetected;
 }
 
-function handleButtonClick(btnN) {
-  const hitDetected = checkForHits(btnN);
+// function handleButtonClick(btnN: HTMLElement) {
+//   const hitDetected = checkForHits(btnN);
 
-  // if(!hitDetected){
+//   // if(!hitDetected){
 
-  // }
-}
+//   // }
+// }
 
 btn1.addEventListener('click', () => checkForHits(btn1));
 btn2.addEventListener('click', () => checkForHits(btn2));

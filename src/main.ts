@@ -5,11 +5,6 @@ const btn4 = document.getElementById('btn4');
 
 if (!btn1 || !btn2 || !btn3 || !btn4) throw new Error('ボタンの要素が存在しない');
 
-const check1 = document.getElementById('check1');
-const check2 = document.getElementById('check2');
-const check3 = document.getElementById('check3');
-const check4 = document.getElementById('check4');
-
 const notesList: {
   lane: number;
   height: number;
@@ -86,36 +81,48 @@ function checkForHits(button: HTMLElement) {
   notes.forEach((note: any) => {
     const noteRect = note.getBoundingClientRect();
     let judge = isIntersecting(noteRect, buttonRect);
-    if (judge < 10) {
+
+    const containerId = 'images-container' + button.id.replace('btn', '');
+    const container = document.getElementById(containerId);
+    const img = document.createElement('img');
+    img.style.width = '50px';
+    img.style.height = '50px';
+    img.alt = '当たり判定';
+
+    console.log(judge);
+
+    if (judge < 16) {
       const intervalId = note.dataset.intervalId;
       note.remove();
       clearInterval(Number(intervalId));
 
       console.log(button.id);
 
-      const containerId = 'images-container' + button.id.replace('btn', '');
+      // const img = document.createElement('img');
+      // img.style.width = '50px';
+      // img.style.height = '50px';
+      // img.alt = '当たり判定';
 
-      const container = document.getElementById(containerId);
-
-      const img = document.createElement('img');
-      img.style.width = '100px';
-      img.style.height = '100px';
-      img.alt = '当たり判定';
-
-      if (judge <= 2) {
+      if (judge <= 4) {
         img.src = './images/perfect.png';
-      } else if (judge <= 5) {
+      } else if (judge <= 7) {
         img.src = './images/great.png';
-      } else if (judge <= 8) {
+      } else if (judge <= 12) {
         img.src = './images/good.png';
-      } else {
-        // img.src = './images/miss.png';
+      } else if (judge <= 15) {
+        img.src = './images/bad.png';
       }
 
       container?.appendChild(img);
-      setTimeout(() => container?.removeChild(img), 1000);
+      setTimeout(() => container?.removeChild(img), 500);
 
       hitDetected = true;
+    }
+
+    if (!hitDetected) {
+      img.src = './images/miss.png';
+      container?.appendChild(img);
+      setTimeout(() => container?.removeChild(img), 500);
     }
   });
   return hitDetected;

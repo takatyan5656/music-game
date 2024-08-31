@@ -25,16 +25,16 @@ h1 {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-.song-item {
+#senbon {
   margin: 10px 0;
   padding: 15px;
-  background-color: #444;
+  color: #444;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.song-item:hover {
+#senbon:hover {
   background-color: #555;
 }
 

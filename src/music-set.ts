@@ -1,17 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const songItems = document.querySelectorAll('.song-item');
-  const audioPlayer = !document.getElementById('audio-player');
+  const senbon = document.getElementById('senbon');
+  const syaruru = document.getElementById('syaruru');
 
-  songItems.forEach((item) => {
-    item.addEventListener('mouseenter', function () {
-      const songSrc = item.getAttribute('data-song');
-      audioPlayer.src = songSrc;
-      audioPlayer.play();
-    });
+  const music1 = new Audio('/music/senbon.mp3');
+  const music2 = new Audio('/music/syaruru.mp3');
 
-    item.addEventListener('mouseleave', function () {
-      audioPlayer.pause();
-      audioPlayer.currentTime = 0; // 再生位置をリセット
-    });
+  senbon?.addEventListener('mouseenter', () => {
+    music1.currentTime = 0;
+    music1.play();
+  });
+
+  senbon?.addEventListener('mouseleave', () => {
+    music1.pause();
+  });
+  syaruru?.addEventListener('mouseenter', () => {
+    music1.currentTime = 0;
+    music2.play();
+  });
+
+  syaruru?.addEventListener('mouseleave', () => {
+    music2.pause();
   });
 });

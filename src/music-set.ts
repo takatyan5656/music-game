@@ -21,4 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
   syaruru?.addEventListener('mouseleave', () => {
     music2.pause();
   });
+
+  document.querySelectorAll('.start-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      window.location.href = './game.html';
+    });
+  });
 });

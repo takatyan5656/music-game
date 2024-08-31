@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>音ゲー</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+
+  <body>
+    <button class="start-btn">START</button>
+    <!--ノーツの速度選択欄-->
+    <div class="set">
+      <p>速度選択</p>
+      <div>
+        <label><input type="checkbox" id="check1" />1</label><br />
+        <label><input type="checkbox" id="check2" />2</label><br />
+        <label><input type="checkbox" id="check3" />3</label><br />
+        <label><input type="checkbox" id="check4" />4</label><br />
+      </div>
+    </div>
+    <div class="canvas">
+      <div class="container">
+        <div class="lane" id="lane1">
+          <button class="btn" id="btn1"></button>
+          <div class="images-container" id="images-container1"></div>
+        </div>
+        <div class="lane" id="lane2">
+          <button class="btn" id="btn2"></button>
+          <div class="images-container" id="images-container2"></div>
+        </div>
+        <div class="lane" id="lane3">
+          <button class="btn" id="btn3"></button>
+          <div class="images-container" id="images-container3"></div>
+        </div>
+        <div class="lane" id="lane4">
+          <button class="btn" id="btn4"></button>
+          <div class="images-container" id="images-container4"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkButton">
+      <input type="button" value="Check" id="checkButton" />
+    </div>
+
+    <!--ここまで-->
+
+    <script type="module" src="src/main.ts"></script>
+  </body>
+</html>

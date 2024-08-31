@@ -2,6 +2,9 @@ const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
 const btn4 = document.getElementById('btn4');
+const music1 = new Audio('/music/senbon.mp3');
+const bpm = 154;
+const noteInterval = 60000 / bpm;
 
 const se = new Audio('/se/se1.mp3');
 
@@ -22,22 +25,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
       setTimeout(() => {
         startMessageElement.style.display = 'none';
+        music1.currentTime = 1.0;
+        music1.play();
         const lane1 = document.getElementById('lane1');
         const lane2 = document.getElementById('lane2');
         const lane3 = document.getElementById('lane3');
         const lane4 = document.getElementById('lane4');
         const ary = [lane1, lane2, lane3, lane4];
-        setInterval(
-          () => {
-            let num = Math.floor(Math.random() * ary.length);
-            createNotes(ary[num]!);
-          },
-          (120 / 128) * 1000
-        );
+        setInterval(() => {
+          let num = Math.floor(Math.random() * ary.length);
+          createNotes(ary[num]!);
+          music1.addEventListener('ended', stopGame);
+        }, noteInterval);
       }, 1000);
     }
   }, 1000);
 });
+
+function stopGame() {
+  clearInterval(noteInterval);
+}
 
 if (!btn1 || !btn2 || !btn3 || !btn4) throw new Error('ボタンの要素が存在しない');
 
@@ -56,7 +63,7 @@ function createNotes(lane: HTMLElement) {
   lane.appendChild(note);
   let position = 0;
   const intervalId = setInterval(() => {
-    position += 2;
+    position += 1;
     note.style.top = position + 'px';
 
     if (position > window.innerHeight) {
@@ -106,20 +113,20 @@ function checkForHits(button: HTMLElement) {
 
     console.log(judge);
 
-    if (judge < 16) {
+    if (judge < 11) {
       const intervalId = note.dataset.intervalId;
       note.remove();
       clearInterval(Number(intervalId));
 
       console.log(button.id);
 
-      if (judge <= 4) {
+      if (judge <= 2) {
         img.src = './images/perfect.png';
-      } else if (judge <= 7) {
+      } else if (judge <= 4) {
         img.src = './images/great.png';
-      } else if (judge <= 12) {
+      } else if (judge <= 7) {
         img.src = './images/good.png';
-      } else if (judge <= 15) {
+      } else if (judge <= 10) {
         img.src = './images/bad.png';
       }
 

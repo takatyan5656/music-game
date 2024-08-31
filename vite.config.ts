@@ -7,8 +7,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: 'index.html',
-        top: 'top.html',
+        main: 'public/index.html',
+        game: 'public/game.html',
+        select: 'public/select.html',
       },
     },
   },

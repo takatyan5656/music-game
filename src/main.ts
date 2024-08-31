@@ -85,10 +85,36 @@ function checkForHits(button: HTMLElement) {
 
   notes.forEach((note: any) => {
     const noteRect = note.getBoundingClientRect();
-    if (isIntersecting(noteRect, buttonRect) < 10) {
+    let judge = isIntersecting(noteRect, buttonRect);
+    if (judge < 10) {
       const intervalId = note.dataset.intervalId;
       note.remove();
       clearInterval(Number(intervalId));
+
+      console.log(button.id);
+
+      const containerId = 'images-container' + button.id.replace('btn', '');
+
+      const container = document.getElementById(containerId);
+
+      const img = document.createElement('img');
+      img.style.width = '100px';
+      img.style.height = '100px';
+      img.alt = '当たり判定';
+
+      if (judge <= 2) {
+        img.src = './images/perfect.png';
+      } else if (judge <= 5) {
+        img.src = './images/great.png';
+      } else if (judge <= 8) {
+        img.src = './images/good.png';
+      } else {
+        // img.src = './images/miss.png';
+      }
+
+      container?.appendChild(img);
+      setTimeout(() => container?.removeChild(img), 1000);
+
       hitDetected = true;
     }
   });

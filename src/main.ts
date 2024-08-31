@@ -5,14 +5,46 @@ const btn4 = document.getElementById('btn4');
 
 const se = new Audio('/se/se1.mp3');
 
+document.addEventListener('DOMContentLoaded', () => {
+  const countdownElement = document.getElementById('countdown') as HTMLDivElement;
+  const startMessageElement = document.getElementById('start-message') as HTMLDivElement;
+
+  let timeLeft = 3;
+
+  const countdownInterval = setInterval(() => {
+    timeLeft--;
+    countdownElement.textContent = String(timeLeft);
+
+    if (timeLeft <= 0) {
+      clearInterval(countdownInterval);
+      countdownElement.style.display = 'none';
+      startMessageElement.style.display = 'block';
+
+      setTimeout(() => {
+        startMessageElement.style.display = 'none';
+        const lane1 = document.getElementById('lane1');
+        const lane2 = document.getElementById('lane2');
+        const lane3 = document.getElementById('lane3');
+        const lane4 = document.getElementById('lane4');
+        const ary = [lane1, lane2, lane3, lane4];
+        setInterval(
+          () => {
+            let num = Math.floor(Math.random() * ary.length);
+            createNotes(ary[num]!);
+          },
+          (120 / 128) * 1000
+        );
+      }, 1000);
+    }
+  }, 1000);
+});
+
 if (!btn1 || !btn2 || !btn3 || !btn4) throw new Error('ボタンの要素が存在しない');
 
 const notesList: {
   lane: number;
   height: number;
 }[] = [];
-
-// let intervalId: number | undefined = undefined
 
 function createNotes(lane: HTMLElement) {
   notesList.push({
@@ -37,31 +69,7 @@ function createNotes(lane: HTMLElement) {
   note.dataset.intervalId = String(intervalId);
 }
 
-document.querySelectorAll('.start-btn').forEach((button) => {
-  button.addEventListener('click', () => {
-    const lane1 = document.getElementById('lane1');
-    const lane2 = document.getElementById('lane2');
-    const lane3 = document.getElementById('lane3');
-    const lane4 = document.getElementById('lane4');
-    const ary = [lane1, lane2, lane3, lane4];
-    setInterval(
-      () => {
-        let num = Math.floor(Math.random() * ary.length);
-        createNotes(ary[num]!);
-      },
-      (120 / 128) * 1000
-    );
-  });
-});
-
 function isIntersecting(rect1: DOMRect, rect2: DOMRect) {
-  // return !(
-  //   // Math.sqrt(rect1.bottom*rect1.bottom - rect2.top*rect2.top)<0.02 ||
-  //   // Math.sqrt(rect1.top*rect1.top - rect2.bottom*rect2.bottom)<0.02 ||
-  //   // rect1.right < rect2.left ||
-  //   // rect1.left > rect2.right
-
-  // );
   const rect1_x = (rect1.width + rect1.left) / 2;
   const rect1_y = (rect1.height + rect1.top) / 2;
   const rect2_x = (rect2.width + rect2.left) / 2;
@@ -105,11 +113,6 @@ function checkForHits(button: HTMLElement) {
 
       console.log(button.id);
 
-      // const img = document.createElement('img');
-      // img.style.width = '50px';
-      // img.style.height = '50px';
-      // img.alt = '当たり判定';
-
       if (judge <= 4) {
         img.src = './images/perfect.png';
       } else if (judge <= 7) {
@@ -128,14 +131,6 @@ function checkForHits(button: HTMLElement) {
   });
   return hitDetected;
 }
-
-// function handleButtonClick(btnN: HTMLElement) {
-//   const hitDetected = checkForHits(btnN);
-
-//   // if(!hitDetected){
-
-//   // }
-// }
 
 btn1.addEventListener('click', () => checkForHits(btn1));
 btn2.addEventListener('click', () => checkForHits(btn2));

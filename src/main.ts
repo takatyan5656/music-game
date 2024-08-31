@@ -37,19 +37,21 @@ function createNotes(lane: HTMLElement) {
   note.dataset.intervalId = String(intervalId);
 }
 
-document.getElementById('start-btn')!.addEventListener('click', () => {
-  const lane1 = document.getElementById('lane1');
-  const lane2 = document.getElementById('lane2');
-  const lane3 = document.getElementById('lane3');
-  const lane4 = document.getElementById('lane4');
-  const ary = [lane1, lane2, lane3, lane4];
-  setInterval(
-    () => {
-      let num = Math.floor(Math.random() * ary.length);
-      createNotes(ary[num]!);
-    },
-    (120 / 128) * 1000
-  );
+document.querySelectorAll('.start-btn').forEach((button) => {
+  button.addEventListener('click', () => {
+    const lane1 = document.getElementById('lane1');
+    const lane2 = document.getElementById('lane2');
+    const lane3 = document.getElementById('lane3');
+    const lane4 = document.getElementById('lane4');
+    const ary = [lane1, lane2, lane3, lane4];
+    setInterval(
+      () => {
+        let num = Math.floor(Math.random() * ary.length);
+        createNotes(ary[num]!);
+      },
+      (120 / 128) * 1000
+    );
+  });
 });
 
 function isIntersecting(rect1: DOMRect, rect2: DOMRect) {

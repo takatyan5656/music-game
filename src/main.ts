@@ -91,201 +91,29 @@ function checkForHits(button: HTMLElement) {
       note.remove();
       clearInterval(Number(intervalId));
 
-      switch (button) {
-        case btn1:
-          if (judge >= 0 && judge <= 2) {
-            const container = document.getElementById('images-container1');
-            const img = document.createElement('img');
-            img.src = './images/perfect.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 3 && judge <= 5) {
-            const img = document.createElement('img');
-            img.src = './images/great.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container1');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 6 && judge <= 8) {
-            const img = document.createElement('img');
-            img.src = './images/good.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container1');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 9 && judge <= 10) {
-            const img = document.createElement('img');
-            img.src = '';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container1');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          }
-          break;
+      console.log(button.id);
 
-        case btn2:
-          if (judge >= 0 && judge <= 2) {
-            const container = document.getElementById('images-container2');
+      const containerId = 'images-container' + button.id.replace('btn', '');
 
-            const img = document.createElement('img');
-            img.src = './images/perfect.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
+      const container = document.getElementById(containerId);
 
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 3 && judge <= 5) {
-            const img = document.createElement('img');
-            img.src = './images/great.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container2');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 6 && judge <= 8) {
-            const img = document.createElement('img');
-            img.src = './images/good.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container2');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 9 && judge <= 10) {
-            const img = document.createElement('img');
-            img.src = '';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container2');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          }
-          break;
+      const img = document.createElement('img');
+      img.style.width = '100px';
+      img.style.height = '100px';
+      img.alt = '当たり判定';
 
-        case btn3:
-          if (judge >= 0 && judge <= 2) {
-            const container = document.getElementById('images-container3');
-            const img = document.createElement('img');
-            img.src = './images/perfect.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 3 && judge <= 5) {
-            const img = document.createElement('img');
-            img.src = './images/great.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container3');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 6 && judge <= 8) {
-            const img = document.createElement('img');
-            img.src = './images/good.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container3');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 9 && judge <= 10) {
-            const img = document.createElement('img');
-            img.src = '';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container3');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          }
-          break;
-
-        case btn4:
-          if (judge >= 0 && judge <= 2) {
-            const container = document.getElementById('images-container4');
-            const img = document.createElement('img');
-            img.src = './images/perfect.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 3 && judge <= 5) {
-            const img = document.createElement('img');
-            img.src = './images/great.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container4');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 6 && judge <= 8) {
-            const img = document.createElement('img');
-            img.src = './images/good.png';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container4');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          } else if (judge >= 9 && judge <= 10) {
-            const img = document.createElement('img');
-            img.src = '';
-            img.alt = '当たり判定';
-            img.style.width = '100px';
-            img.style.height = '100px';
-            const container = document.getElementById('images-container4');
-            container?.appendChild(img);
-            setTimeout(() => {
-              container?.removeChild(img);
-            }, 1000);
-          }
-          break;
+      if (judge <= 2) {
+        img.src = './images/perfect.png';
+      } else if (judge <= 5) {
+        img.src = './images/great.png';
+      } else if (judge <= 8) {
+        img.src = './images/good.png';
+      } else {
+        // img.src = './images/miss.png';
       }
+
+      container?.appendChild(img);
+      setTimeout(() => container?.removeChild(img), 1000);
 
       hitDetected = true;
     }

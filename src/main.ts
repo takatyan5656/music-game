@@ -56,12 +56,26 @@ document.getElementById('start-btn')!.addEventListener('click', () => {
 });
 
 function isIntersecting(rect1: DOMRect, rect2: DOMRect) {
-  return !(
-    Math.sqrt(rect1.bottom*rect1.bottom - rect2.top*rect2.top)<0.02 ||
-    Math.sqrt(rect1.top*rect1.top - rect2.bottom*rect2.bottom)<0.02 ||
-    rect1.right < rect2.left ||
-    rect1.left > rect2.right
-  );
+  // return !(
+  //   // Math.sqrt(rect1.bottom*rect1.bottom - rect2.top*rect2.top)<0.02 ||
+  //   // Math.sqrt(rect1.top*rect1.top - rect2.bottom*rect2.bottom)<0.02 ||
+  //   // rect1.right < rect2.left ||
+  //   // rect1.left > rect2.right
+
+  // );
+  const rect1_x = (rect1.width + rect1.left) / 2;
+  const rect1_y = (rect1.height + rect1.top) / 2;
+  const rect2_x = (rect2.width + rect2.left) / 2;
+  const rect2_y = (rect2.height + rect2.top) / 2;
+
+  const distans = calculateDistance(rect1_x, rect1_y, rect2_x, rect2_y);
+
+  return distans;
+}
+
+function calculateDistance(x1: number, y1: number, x2: number, y2: number) {
+  const distans = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+  return distans;
 }
 
 function checkForHits(button: HTMLElement) {
@@ -71,7 +85,7 @@ function checkForHits(button: HTMLElement) {
 
   notes.forEach((note: any) => {
     const noteRect = note.getBoundingClientRect();
-    if (isIntersecting(noteRect, buttonRect)) {
+    if (isIntersecting(noteRect, buttonRect) < 10) {
       const intervalId = note.dataset.intervalId;
       note.remove();
       clearInterval(Number(intervalId));

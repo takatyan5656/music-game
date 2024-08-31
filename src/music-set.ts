@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const senbon = document.getElementById('senbon');
   const syaruru = document.getElementById('syaruru');
 
-  const music1 = new Audio('/music/senbon.mp3');
-  const music2 = new Audio('/music/syaruru.mp3');
+  const music1 = new Audio('/music-game/music/senbon.mp3');
+  const music2 = new Audio('/music-game/music/syaruru.mp3');
 
   senbon?.addEventListener('mouseenter', () => {
     music1.currentTime = 1.4;

@@ -2,11 +2,11 @@ const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
 const btn4 = document.getElementById('btn4');
-const music1 = new Audio('/music/senbon.mp3');
+const music1 = new Audio('/music-game/music/senbon.mp3');
 const bpm = 154;
 const noteInterval = 60000 / bpm;
 
-const se = new Audio('/se/se1.mp3');
+const se = new Audio('/music-game/se/se1.mp3');
 
 document.addEventListener('DOMContentLoaded', () => {
   const countdownElement = document.getElementById('countdown') as HTMLDivElement;
@@ -121,13 +121,13 @@ function checkForHits(button: HTMLElement) {
       console.log(button.id);
 
       if (judge <= 2) {
-        img.src = './images/perfect.png';
+        img.src = '/music-game/images/perfect.png';
       } else if (judge <= 4) {
-        img.src = './images/great.png';
+        img.src = '/music-game/images/great.png';
       } else if (judge <= 7) {
-        img.src = './images/good.png';
+        img.src = '/music-game/images/good.png';
       } else if (judge <= 10) {
-        img.src = './images/bad.png';
+        img.src = '/music-game/images/bad.png';
       }
 
       container?.appendChild(img);

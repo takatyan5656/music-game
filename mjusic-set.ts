@@ -27,9 +27,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
-const senbon = document.getElementById('senbon');
-senbon?.addEventListener('click', function () {
-  const audio = document.getElementById('myAudio');
-  audio?.onplay();
-});

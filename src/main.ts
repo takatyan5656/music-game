@@ -5,10 +5,10 @@ const btn4 = document.getElementById('btn4');
 
 if (!btn1 || !btn2 || !btn3 || !btn4) throw new Error('ボタンの要素が存在しない');
 
-const check1 = document.getElementById('check1');
-const check2 = document.getElementById('check2');
-const check3 = document.getElementById('check3');
-const check4 = document.getElementById('check4');
+// const check1 = document.getElementById('check1');
+// const check2 = document.getElementById('check2');
+// const check3 = document.getElementById('check3');
+// const check4 = document.getElementById('check4');
 
 const notesList: {
   lane: number;

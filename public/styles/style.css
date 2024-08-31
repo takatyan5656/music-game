@@ -23,7 +23,7 @@ body {
   height: 100vh;
   display: flex;
   position: relative;
-  background-image: url(./src/android-1440x2560-wallpaper_02132.jpg);
+  background-image: url(/images/android-1440x2560-wallpaper_02132.jpg);
   background-size: cover;
 }
 

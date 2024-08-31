@@ -1,5 +1,6 @@
 {
   "name": "music-game",
+  "homepage": "https://takatyan5656.github.io/music-game/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +8,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "prettier": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "rm": "rm -rf docs",
+    "mv": "mv dist docs",
+    "git": "git add . && git commit -m 'auto deploy' && git push",
+    "deploy": "npm run rm && npm run build && npm run mv && npm run git"
   },
   "devDependencies": {
     "sass": "^1.77.8",

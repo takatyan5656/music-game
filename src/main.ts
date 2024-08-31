@@ -3,6 +3,8 @@ const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
 const btn4 = document.getElementById('btn4');
 
+const se = new Audio('/se/se1.mp3');
+
 if (!btn1 || !btn2 || !btn3 || !btn4) throw new Error('ボタンの要素が存在しない');
 
 const notesList: {
@@ -78,6 +80,9 @@ function checkForHits(button: HTMLElement) {
   const buttonRect = button.getBoundingClientRect();
   let hitDetected = false;
 
+  se.currentTime = 0;
+  se.play();
+
   notes.forEach((note: any) => {
     const noteRect = note.getBoundingClientRect();
     let judge = isIntersecting(noteRect, buttonRect);
@@ -117,12 +122,6 @@ function checkForHits(button: HTMLElement) {
       setTimeout(() => container?.removeChild(img), 500);
 
       hitDetected = true;
-    }
-
-    if (!hitDetected) {
-      img.src = './images/miss.png';
-      container?.appendChild(img);
-      setTimeout(() => container?.removeChild(img), 500);
     }
   });
   return hitDetected;

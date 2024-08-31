@@ -4,6 +4,7 @@ export default defineConfig({
   server: {
     open: true,
   },
+  base: '/music-game/',
   build: {
     rollupOptions: {
       input: {

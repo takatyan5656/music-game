@@ -40,6 +40,16 @@ body {
   z-index: 2;
 }
 
+.images-container {
+  position: absolute;
+  bottom: 10%;
+  right: 35%;
+  left: auto;
+  z-index: 2;
+  color: white;
+  text-align: center;
+}
+
 .note {
   position: absolute;
   width: 100%;

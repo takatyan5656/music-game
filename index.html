@@ -1,51 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="jp">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>音ゲー</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-<body>
+  <body>
     <button id="start-btn">START</button>
     <!--ノーツの速度選択欄-->
     <div class="set">
-        <p>速度選択</p>
-        <div>
-            <label><input type="checkbox" id="check1">1</label><br>
-            <label><input type="checkbox" id="check2">2</label><br>
-            <label><input type="checkbox" id="check3">3</label><br>
-            <label><input type="checkbox" id="check4">4</label><br>
-        </div>
+      <p>速度選択</p>
+      <div>
+        <label><input type="checkbox" id="check1" />1</label><br />
+        <label><input type="checkbox" id="check2" />2</label><br />
+        <label><input type="checkbox" id="check3" />3</label><br />
+        <label><input type="checkbox" id="check4" />4</label><br />
+      </div>
     </div>
     <div class="canvas">
-        <div class="container">
-            <div class="lane" id="lane1">
-                <button class="btn" id="btn1"></button>
-            </div>
-            <div class="lane" id="lane2">
-                <button class="btn" id="btn2"></button>
-            </div>
-            <div class="lane" id="lane3">
-                <button class="btn" id="btn3"></button>
-            </div>
-            <div class="lane" id="lane4">
-                <button class="btn" id="btn4"></button>
-            </div>
+      <div class="container">
+        <div class="lane" id="lane1">
+          <button class="btn" id="btn1"></button>
+          <div class="images-container" id="imanes-container1">aaa</div>
         </div>
+        <div class="lane" id="lane2">
+          <button class="btn" id="btn2"></button>
+          <div class="images-container" id="imanes-container2">aaa</div>
+        </div>
+        <div class="lane" id="lane3">
+          <button class="btn" id="btn3"></button>
+          <div class="images-container" id="imanes-container3">aaa</div>
+        </div>
+        <div class="lane" id="lane4">
+          <button class="btn" id="btn4"></button>
+          <div class="images-container" id="imanes-container4">aaa</div>
+        </div>
+      </div>
     </div>
 
-
-
     <div class="checkButton">
-        <input type="button" value="Check" id="checkButton">
+      <input type="button" value="Check" id="checkButton" />
     </div>
 
     <!--ここまで-->
 
-    <script type="module" src="src/main.ts"></Script>
-</body>
-
+    <script type="module" src="src/main.ts"></script>
+  </body>
 </html>

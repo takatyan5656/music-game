@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const music2 = new Audio('/music/syaruru.mp3');
 
   senbon?.addEventListener('mouseenter', () => {
-    music1.currentTime = 0;
+    music1.currentTime = 1.4;
     music1.play();
   });
 
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     music1.pause();
   });
   syaruru?.addEventListener('mouseenter', () => {
-    music1.currentTime = 0;
+    music2.currentTime = 1.2;
     music2.play();
   });
 

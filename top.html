@@ -3,29 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>音ゲー 選曲画面</title>
-    <link rel="stylesheet" href="/public/styles/set.css" />
+    <title>音ゲー - 曲プレビュー</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <h1>曲を選択してください</h1>
+      <h1>曲にマウスカーソルを置いてください</h1>
       <div class="song-list">
-        <div class="song-item" data-song="/music/senbon.mp3" data-title="千本桜">千本桜</div>
-        <div class="song-item" data-song="/music/syaruru.mp3" data-title="シャルル">シャルル</div>
-        <div class="song-item" data-song="/music/song3.mp3" data-title="Song Title 3">
-          Song Title 3
-        </div>
+        <div class="song-item" data-song="/music/senbon.mp3">千本桜</div>
+        <div class="song-item" data-song="/music/syaruru.mp3">シャルル</div>
+        <div class="song-item" data-song="/music/song3.mp3">Song Title 3</div>
       </div>
-
-      <div class="song-preview">
-        <div id="selected-song">曲を選択してください</div>
-        <audio id="audio-player" controls><source src="/music/senbon.mp3" /></audio>
-        <audio id="audio-player" controls><source src="/music/syaruru.mp3" /></audio>
-      </div>
-
-      <button class="select-button" id="select-button" disabled>この曲を選択</button>
+      <audio id="audio-player"></audio>
     </div>
-
-    <script src="/src/music-set.ts"></script>
+    <script src="script.js"></script>
   </body>
 </html>

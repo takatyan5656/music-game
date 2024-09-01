@@ -1,30 +1,30 @@
-let selectedSong: string | null = null;
-
 document.addEventListener('DOMContentLoaded', function () {
-  const songItems = document.querySelectorAll('.song-item')!;
-  const selectedSongElement = document.getElementById('selected-song') as HTMLAudioElement;
-  const audioPlayer = document.getElementById('audio-player')!;
-  const selectButton = document.getElementById('select-button') as HTMLButtonElement;
+  const senbon = document.getElementById('senbon');
+  const syaruru = document.getElementById('syaruru');
 
-  songItems.forEach((item) => {
-    item.addEventListener('click', function () {
-      selectedSong = item.getAttribute('data-song');
-      const songTitle = item.getAttribute('data-title');
+  const music1 = new Audio('/music-game/music/senbon.mp3');
+  const music2 = new Audio('/music-game/music/syaruru.mp3');
 
-      selectedSongElement!.textContent = songTitle;
-      (audioPlayer.firstElementChild as HTMLSourceElement).src = String(selectedSong);
-      selectButton.disabled = false;
-
-      // 他の選択項目から選択状態を解除
-      songItems.forEach((song) => song.classList.remove('selected'));
-      // 現在の選択項目に選択状態を追加
-      item.classList.add('selected');
-    });
+  senbon?.addEventListener('mouseenter', () => {
+    music1.currentTime = 1.4;
+    music1.play();
   });
 
-  selectButton.addEventListener('click', function () {
-    if (selectedSong) {
-      alert(selectedSong + ' が選択されました！');
-    }
+  senbon?.addEventListener('mouseleave', () => {
+    music1.pause();
+  });
+  syaruru?.addEventListener('mouseenter', () => {
+    music2.currentTime = 1.2;
+    music2.play();
+  });
+
+  syaruru?.addEventListener('mouseleave', () => {
+    music2.pause();
+  });
+
+  document.querySelectorAll('.start-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      window.location.href = './game.html';
+    });
   });
 });

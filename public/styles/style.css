@@ -23,10 +23,32 @@ body {
   height: 100vh;
   display: flex;
   position: relative;
-  background-image: url(/images/android-1440x2560-wallpaper_02132.jpg);
+  background-image: url(/music-game/images/android-1440x2560-wallpaper_02132.jpg);
   background-size: cover;
+  justify-content: center;
+  align-items: center;
 }
 
+.countdown,
+#start-message {
+  position: absolute;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-weight: bold;
+}
+
+.countdown {
+  font-size: 500%;
+}
+
+#start-message {
+  display: none;
+  font-size: 300%;
+}
 .container div {
   flex: 1;
   border-left: 1px solid black;
@@ -36,6 +58,7 @@ body {
   width: 100%;
   position: absolute;
   bottom: 15%;
+  height: 2%;
   cursor: pointer;
   z-index: 2;
 }

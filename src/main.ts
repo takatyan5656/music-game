@@ -70,10 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
         music.play();
 
         intervalKeys.push(
-          setInterval(() => {
-            let num = Math.floor(Math.random() * ary.length);
-            createNotes(ary[num]!);
-          }, 60000 / bpm) as unknown as number
+          setInterval(
+            () => {
+              let num = Math.floor(Math.random() * ary.length);
+              createNotes(ary[num]!);
+            },
+            (60000 / bpm) * 2
+          ) as unknown as number
         );
 
         music.addEventListener('ended', stopGame);

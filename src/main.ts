@@ -15,6 +15,9 @@ const music3_bpm = 170;
 const music4_bmp = 204;
 let bpm = 0;
 
+let comb_count = 0;
+const comb = document.getElementById('comb') as HTMLDivElement;
+
 const se = new Audio('/music-game/se/se1.mp3');
 
 const intervalKeys: number[] = [];
@@ -159,12 +162,20 @@ function checkForHits(button: HTMLElement) {
 
       if (judge <= 2) {
         img.src = '/music-game/images/perfect.png';
+        comb_count++;
+        comb.textContent = String(comb_count + ' combo!');
       } else if (judge <= 4) {
         img.src = '/music-game/images/great.png';
+        comb_count++;
+        comb.textContent = String(comb_count + ' combo!');
       } else if (judge <= 7) {
         img.src = '/music-game/images/good.png';
+        comb_count = 0;
+        comb.textContent = String(comb_count + ' combo!');
       } else if (judge <= 10) {
         img.src = '/music-game/images/bad.png';
+        comb_count = 0;
+        comb.textContent = String(comb_count + ' combo!');
       }
 
       container?.appendChild(img);

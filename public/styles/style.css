@@ -107,3 +107,13 @@ body {
   top: 20%;
   left: 5%;
 }
+
+#comb {
+  position: absolute;
+  font-size: 170%;
+  font-weight: bold;
+  color: darkgoldenrod;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}

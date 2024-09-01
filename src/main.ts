@@ -8,7 +8,7 @@ const btn4 = document.getElementById('btn4');
 const music1_bpm = 154;
 const music2_bpm = 145;
 let bpm = 0;
-const noteInterval = 60000 / bpm;
+// const noteInterval = 60000 / bpm;
 
 const se = new Audio('/music-game/se/se1.mp3');
 

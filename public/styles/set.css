@@ -24,6 +24,12 @@ h1 {
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
+.wrepper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: fit-content;
+}
 /*曲のボタン大きさ設定*/
 #senbon {
   margin: 0;
@@ -61,6 +67,19 @@ h1 {
 }
 
 #over:hover {
+  background-color: #555;
+}
+
+#bba {
+  margin: 0;
+  padding: 10px;
+  color: #444;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#bba:hover {
   background-color: #555;
 }
 /*ここまで*/

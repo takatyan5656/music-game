@@ -2,10 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const senbon = document.getElementById('senbon');
   const syaruru = document.getElementById('syaruru');
   const over = document.getElementById('over');
+  const bba = document.getElementById('bba');
 
   const music1 = new Audio('/music-game/music/senbon.mp3');
   const music2 = new Audio('/music-game/music/syaruru.mp3');
   const music3 = new Audio('/music-game/music/over.mp3');
+  const music4 = new Audio('/music-game/music/bisyouzyo.mp3');
   //千本桜
   senbon?.addEventListener('mouseenter', () => {
     music1.currentTime = 1.4;
@@ -34,7 +36,15 @@ document.addEventListener('DOMContentLoaded', function () {
   over?.addEventListener('mouseleave', () => {
     music3.pause();
   });
+  //びしょぱい
+  bba?.addEventListener('mouseenter', () => {
+    music4.currentTime = 1.2;
+    music4.play();
+  });
 
+  bba?.addEventListener('mouseleave', () => {
+    music4.pause();
+  });
   function selectSong(songFileName: string) {
     window.location.href = './game.html?song=' + encodeURIComponent(songFileName);
   }
@@ -49,5 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   over?.addEventListener('click', () => {
     selectSong('over.mp3');
+  });
+
+  bba?.addEventListener('click', () => {
+    selectSong('bisyouzyo.mp3');
   });
 });

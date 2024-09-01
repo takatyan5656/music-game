@@ -2,8 +2,12 @@ const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
 const btn4 = document.getElementById('btn4');
-const music1 = new Audio('/music-game/music/senbon.mp3');
-const bpm = 154;
+
+// const music1 = new Audio('/music-game/music/senbon.mp3');
+// const music2 = new Audio('/music-game/music/syaruru.mp3');
+const music1_bpm = 154;
+const music2_bpm = 145;
+let bpm = 0;
 const noteInterval = 60000 / bpm;
 
 const se = new Audio('/music-game/se/se1.mp3');
@@ -11,6 +15,26 @@ const se = new Audio('/music-game/se/se1.mp3');
 document.addEventListener('DOMContentLoaded', () => {
   const countdownElement = document.getElementById('countdown') as HTMLDivElement;
   const startMessageElement = document.getElementById('start-message') as HTMLDivElement;
+
+  function getQueryParam(param: string) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+
+  const selectedSong = getQueryParam('song');
+
+  switch (selectedSong) {
+    case 'senbon.mp3':
+      bpm = music1_bpm;
+      break;
+    case 'syaruru.mp3':
+      bpm = music2_bpm;
+      break;
+    default:
+      throw new Error('No song selected');
+  }
+
+  const music = new Audio('/music-game/music/' + selectedSong);
 
   let timeLeft = 3;
 
@@ -25,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       setTimeout(() => {
         startMessageElement.style.display = 'none';
-        music1.currentTime = 1.0;
-        music1.play();
+        music.currentTime = 1.0;
+        music.play();
         const lane1 = document.getElementById('lane1');
         const lane2 = document.getElementById('lane2');
         const lane3 = document.getElementById('lane3');
@@ -35,15 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(() => {
           let num = Math.floor(Math.random() * ary.length);
           createNotes(ary[num]!);
-          music1.addEventListener('ended', stopGame);
-        }, noteInterval);
+          music.addEventListener('ended', stopGame);
+        }, 60000 / bpm);
       }, 1000);
     }
   }, 1000);
 });
 
 function stopGame() {
-  clearInterval(noteInterval);
+  clearInterval(60000 / bpm);
 }
 
 if (!btn1 || !btn2 || !btn3 || !btn4) throw new Error('ボタンの要素が存在しない');

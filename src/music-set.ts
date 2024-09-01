@@ -4,15 +4,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const music1 = new Audio('/music-game/music/senbon.mp3');
   const music2 = new Audio('/music-game/music/syaruru.mp3');
-
+  //千本桜
   senbon?.addEventListener('mouseenter', () => {
     music1.currentTime = 1.4;
     music1.play();
   });
-
   senbon?.addEventListener('mouseleave', () => {
     music1.pause();
   });
+
+  //シャルル
   syaruru?.addEventListener('mouseenter', () => {
     music2.currentTime = 1.2;
     music2.play();
@@ -22,9 +23,15 @@ document.addEventListener('DOMContentLoaded', function () {
     music2.pause();
   });
 
-  document.querySelectorAll('.start-btn').forEach((button) => {
-    button.addEventListener('click', () => {
-      window.location.href = './game.html';
-    });
+  function selectSong(songFileName: string) {
+    window.location.href = './game.html?song=' + encodeURIComponent(songFileName);
+  }
+
+  senbon?.addEventListener('click', () => {
+    selectSong('senbon.mp3');
+  });
+
+  syaruru?.addEventListener('click', () => {
+    selectSong('syaruru.mp3');
   });
 });

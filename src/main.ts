@@ -3,6 +3,12 @@ const btn2 = document.getElementById('btn2');
 const btn3 = document.getElementById('btn3');
 const btn4 = document.getElementById('btn4');
 
+const lane1 = document.getElementById('lane1');
+const lane2 = document.getElementById('lane2');
+const lane3 = document.getElementById('lane3');
+const lane4 = document.getElementById('lane4');
+const ary = [lane1, lane2, lane3, lane4];
+
 // const music1 = new Audio('/music-game/music/senbon.mp3');
 // const music2 = new Audio('/music-game/music/syaruru.mp3');
 const music1_bpm = 154;
@@ -13,6 +19,10 @@ let bpm = 0;
 // const noteInterval = 60000 / bpm;
 
 const se = new Audio('/music-game/se/se1.mp3');
+
+let hasEnded = false;
+
+const intervalKeys: number[] = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   const countdownElement = document.getElementById('countdown') as HTMLDivElement;
@@ -58,25 +68,30 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         startMessageElement.style.display = 'none';
         music.currentTime = 1.0;
+        music.playbackRate = 10;
         music.play();
-        const lane1 = document.getElementById('lane1');
-        const lane2 = document.getElementById('lane2');
-        const lane3 = document.getElementById('lane3');
-        const lane4 = document.getElementById('lane4');
-        const ary = [lane1, lane2, lane3, lane4];
-        setInterval(() => {
-          let num = Math.floor(Math.random() * ary.length);
-          createNotes(ary[num]!);
-          music.addEventListener('ended', stopGame);
-        }, 60000 / bpm);
+
+        intervalKeys.push(
+          setInterval(() => {
+            let num = Math.floor(Math.random() * ary.length);
+            createNotes(ary[num]!);
+          }, 60000 / bpm)
+        );
+
+        music.addEventListener('ended', stopGame);
       }, 1000);
     }
   }, 1000);
-});
 
-function stopGame() {
-  clearInterval(60000 / bpm);
-}
+  function stopGame() {
+    intervalKeys.forEach((key) => clearInterval(key));
+    hasEnded = true;
+    // if (noteGenerationInterval) {
+    //   clearInterval(noteGenerationInterval);
+    //   noteGenerationInterval = null;
+    // }
+  }
+});
 
 if (!btn1 || !btn2 || !btn3 || !btn4) throw new Error('ボタンの要素が存在しない');
 

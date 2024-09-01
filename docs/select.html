@@ -5,21 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>音ゲー - 曲プレビュー</title>
     <link rel="stylesheet" href="/music-game/styles/set.css" />
-    <script type="module" crossorigin src="/music-game/assets/select-DrhosgZx.js"></script>
+    <script type="module" crossorigin src="/music-game/assets/select-8E68mQo3.js"></script>
     <link rel="modulepreload" crossorigin href="/music-game/assets/modulepreload-polyfill-B5Qt9EMX.js">
   </head>
   <body>
     <div class="container">
       <h1>曲にマウスカーソルを置いてください</h1>
-      <div class="song-list">
-        <div class="song-item" data-song="/music-game/music/senbon.mp3">
-          <button class="start-btn" id="senbon">千本桜</button>
+      <h1>クリックしてゲームスタート！</h1>
+      <div class="wrapper">
+        <div class="song-list">
+          <div class="song-item" data-song="/music-game/music/senbon.mp3">
+            <button class="start-btn" id="senbon">千本桜</button>
+          </div>
+          <div class="song-item" data-song="/music-game/music/syaruru.mp3">
+            <button class="start-btn" id="syaruru">シャルル</button>
+          </div>
+          <div class="song-item" data-song="/music-game/music/over.mp3">
+            <button class="start-btn" id="over">オーバーライド</button>
+          </div>
+          <div class="song-item" data-song="/music-game/music/bisyouzyo.mp3">
+            <button class="start-btn" id="bba">びしょぱい</button>
+          </div>
         </div>
-        <div class="song-item" data-song="/music-game/music/syaruru.mp3">
-          <button class="start-btn" id="syaruru">シャルル</button>
-        </div>
-        <div class="song-item" data-song="/music-game/music/over.mp3">
-          <button class="start-btn" id="over">オーバーライド</button>
       </div>
       <audio id="audio-player"></audio>
     </div>

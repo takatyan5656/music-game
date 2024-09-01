@@ -9,18 +9,13 @@ const lane3 = document.getElementById('lane3');
 const lane4 = document.getElementById('lane4');
 const ary = [lane1, lane2, lane3, lane4];
 
-// const music1 = new Audio('/music-game/music/senbon.mp3');
-// const music2 = new Audio('/music-game/music/syaruru.mp3');
 const music1_bpm = 154;
 const music2_bpm = 145;
 const music3_bpm = 170;
 const music4_bmp = 204;
 let bpm = 0;
-// const noteInterval = 60000 / bpm;
 
 const se = new Audio('/music-game/se/se1.mp3');
-
-let hasEnded = false;
 
 const intervalKeys: number[] = [];
 
@@ -68,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         startMessageElement.style.display = 'none';
         music.currentTime = 1.0;
-        music.playbackRate = 10;
+        music.playbackRate = 1;
         music.play();
 
         intervalKeys.push(
@@ -85,11 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function stopGame() {
     intervalKeys.forEach((key) => clearInterval(key));
-    hasEnded = true;
-    // if (noteGenerationInterval) {
-    //   clearInterval(noteGenerationInterval);
-    //   noteGenerationInterval = null;
-    // }
   }
 });
 

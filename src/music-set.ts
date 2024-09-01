@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
   const senbon = document.getElementById('senbon');
   const syaruru = document.getElementById('syaruru');
+  const over = document.getElementById('over');
 
   const music1 = new Audio('/music-game/music/senbon.mp3');
   const music2 = new Audio('/music-game/music/syaruru.mp3');
+  const music3 = new Audio('/music-game/music/over.mp3');
   //千本桜
   senbon?.addEventListener('mouseenter', () => {
     music1.currentTime = 1.4;
@@ -23,6 +25,16 @@ document.addEventListener('DOMContentLoaded', function () {
     music2.pause();
   });
 
+  //override
+  over?.addEventListener('mouseenter', () => {
+    music3.currentTime = 1.2;
+    music3.play();
+  });
+
+  over?.addEventListener('mouseleave', () => {
+    music3.pause();
+  });
+
   function selectSong(songFileName: string) {
     window.location.href = './game.html?song=' + encodeURIComponent(songFileName);
   }
@@ -33,5 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   syaruru?.addEventListener('click', () => {
     selectSong('syaruru.mp3');
+  });
+
+  over?.addEventListener('click', () => {
+    selectSong('over.mp3');
   });
 });

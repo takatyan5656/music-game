@@ -7,6 +7,8 @@ const btn4 = document.getElementById('btn4');
 // const music2 = new Audio('/music-game/music/syaruru.mp3');
 const music1_bpm = 154;
 const music2_bpm = 145;
+const music3_bpm = 170;
+const music4_bmp = 204;
 let bpm = 0;
 // const noteInterval = 60000 / bpm;
 
@@ -29,6 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
       break;
     case 'syaruru.mp3':
       bpm = music2_bpm;
+      break;
+    case 'bisyouzyo.mp3':
+      bpm = music3_bpm;
+      break;
+    case 'over.mp3':
+      bpm = music4_bmp;
       break;
     default:
       throw new Error('No song selected');

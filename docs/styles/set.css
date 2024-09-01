@@ -24,7 +24,7 @@ h1 {
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
-
+/*曲のボタン大きさ設定*/
 #senbon {
   margin: 0;
   padding: 10px;
@@ -38,6 +38,32 @@ h1 {
   background-color: #555;
 }
 
+#syaruru {
+  margin: 0;
+  padding: 10px;
+  color: #444;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#syaruru:hover {
+  background-color: #555;
+}
+
+#over {
+  margin: 0;
+  padding: 10px;
+  color: #444;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#over:hover {
+  background-color: #555;
+}
+/*ここまで*/
 .song-preview {
   margin-top: 20px;
 }

@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
           setInterval(() => {
             let num = Math.floor(Math.random() * ary.length);
             createNotes(ary[num]!);
-          }, 60000 / bpm)
+          }, 60000 / bpm) as unknown as number
         );
 
         music.addEventListener('ended', stopGame);

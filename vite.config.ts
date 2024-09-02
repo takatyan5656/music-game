@@ -8,9 +8,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: 'public/index.html',
-        game: 'public/game.html',
-        select: 'public/select.html',
+        main: 'index.html',
+        game: 'game.html',
+        select: 'select.html',
       },
     },
   },

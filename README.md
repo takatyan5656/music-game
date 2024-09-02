@@ -19,6 +19,19 @@
 
 ## 画像
 
+### index.html（スタート画面）
+
+<img width="848" alt="スクリーンショット 2024-09-02 16 00 10" src="https://github.com/user-attachments/assets/e2ce4926-ca73-4f97-8620-633a23a5a9a3">
+
+### select.html（曲の選択画面）
+
+<img width="851" alt="スクリーンショット 2024-09-02 16 08 22" src="https://github.com/user-attachments/assets/e2d1e40e-34a1-4fea-936e-4de72cdd8eb9">
+
+### game.html（ゲームプレイ画面）
+
+![image](https://github.com/user-attachments/assets/5037414f-c5b4-44de-8140-9db22d7c47f5)
+
+
 ## 起動方法（clone等をする場合）
 
 ```shell
